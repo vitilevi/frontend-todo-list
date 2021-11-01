@@ -6,21 +6,26 @@ export default function TaskProvider({ children }) {
   const [isUserLogged, setIsUserLogged] = useState(false);
   const [tasks, setTasks] = useState([]);
   const [token, setToken] = useState('');
+  const [user, setUser] = useState({});
 
   useEffect(() => {
     const saveNewTasks = async () => {
-      await saveTasks(tasks);
+      await saveTasks(token, tasks);
     }
-    saveNewTasks();
-  }, [tasks]);
+    if (tasks.length !== 0) {
+      saveNewTasks();
+    }
+  }, [tasks, token]);
 
   const context = {
     isUserLogged,
     tasks,
     token,
+    user,
     setIsUserLogged,
     setTasks,
     setToken,
+    setUser,
   }
 
   return (

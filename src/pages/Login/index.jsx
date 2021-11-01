@@ -11,6 +11,7 @@ export default function Login() {
     setIsUserLogged,
     setToken,
     setTasks,
+    setUser,
   } = useContext(TaskContext);
   
   const onSuccess = async (res) => {
@@ -18,6 +19,7 @@ export default function Login() {
     const { tokenId } = res;
     setToken(tokenId);
     const dbRequest = await login(tokenId);
+    setUser(dbRequest);
     setTasks(dbRequest.tasks);
     setIsUserLogged(true);
     }
