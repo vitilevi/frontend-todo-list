@@ -1,19 +1,23 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import { Container } from 'react-bootstrap';
 import { GoogleLogin } from 'react-google-login';
 import { Redirect } from 'react-router-dom';
+import TaskContext from '../../contexts/TaskContext';
 
 export default function Login() {
-  const [isAuthorizedToRedirect, setIsAuthorizedToRedirect] = useState(false);
+  const {
+    isUserLogged,
+    setIsUserLogged,
+  } = useContext(TaskContext);
   
   const onSuccess = (res) => {
     console.log('succeed', res)
-    setIsAuthorizedToRedirect(true);
+    setIsUserLogged(true);
     }
   
   const onFailure = (res) => {
     console.log('failed', res)
-    setIsAuthorizedToRedirect(false);
+    setIsUserLogged(false);
   }
 
   const redirectComponent = () => {
@@ -22,7 +26,7 @@ export default function Login() {
     );
   }
 
-  return ( isAuthorizedToRedirect? redirectComponent() : 
+  return ( isUserLogged? redirectComponent() : 
     <Container className="login-container">
       <div className="p-5 d-flex flex-column mx-auto text-center login-box">
         <h2 className="">Login</h2>
