@@ -3,7 +3,7 @@ import { Container } from 'react-bootstrap';
 import { GoogleLogin } from 'react-google-login';
 import { Redirect } from 'react-router-dom';
 import TaskContext from '../../contexts/TaskContext';
-import login from '../../services/fetchApi';
+import { login } from '../../services/fetchApi';
 
 export default function Login() {
   const {
