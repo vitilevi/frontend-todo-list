@@ -1,6 +1,6 @@
 import axios from "axios";
 
-function login(token) {
+export function login(token) {
   const URL = 'http://localhost:3001/login';
   const obj = {
     token,
@@ -8,4 +8,10 @@ function login(token) {
   return axios.post(URL, obj).then((res) => res.data);
 }
 
-export default login;
+export function saveTasks(tasks) {
+  const URL = 'http://localhost:3001/login';
+  const obj = {
+    tasks,
+  };
+  return axios.post(URL, obj).then((res) => res.data);
+}

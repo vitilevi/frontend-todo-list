@@ -4,6 +4,7 @@ import { GoogleLogout } from 'react-google-login';
 import { Redirect } from 'react-router-dom';
 import TaskContext from '../../contexts/TaskContext';
 import TaskInput from '../../components/TaskInput';
+import Task from '../../components/Task';
 
 export default function TaskList() {
   const {
@@ -42,7 +43,7 @@ export default function TaskList() {
       </div>
       <div className="mx-auto mt-5">
         {
-
+          tasks.map((task) => <Task key={ task.name } task={ task } />)
         }
       </div>
     </Container>
