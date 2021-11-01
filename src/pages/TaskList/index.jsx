@@ -1,14 +1,20 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import { Container } from 'react-bootstrap';
 import { GoogleLogout } from 'react-google-login';
 import { Redirect } from 'react-router-dom';
+import TaskContext from '../../contexts/TaskContext';
+import TaskInput from '../../components/TaskInput';
 
 export default function TaskList() {
-  const [isUserLogedOut, setIsUserLogedOut] = useState(false);
+  const {
+    isUserLogged,
+    setIsUserLogged,
+    tasks,
+  } = useContext(TaskContext);
 
   const onSuccess = () => {
     console.log('Loged out successfuly')
-    setIsUserLogedOut(true);
+    setIsUserLogged(false);
   }
 
   const redirectComponent = () => {
@@ -17,7 +23,7 @@ export default function TaskList() {
     );
   }
 
-  return ( isUserLogedOut? redirectComponent() :
+  return ( !isUserLogged? redirectComponent() :
     <Container className="py-5 d-flex flex-column">
       <div className="ms-auto">
         <GoogleLogout
@@ -32,11 +38,12 @@ export default function TaskList() {
         </h1>
       </div>
       <div className="mx-auto mt-3">
-        <input
-          className="task-input"
-          type="text"
-        />
-        <button className="ms-3 rounded-circle p-1 task-btn"> OK </button>
+        <TaskInput />
+      </div>
+      <div className="mx-auto mt-5">
+        {
+
+        }
       </div>
     </Container>
   )
