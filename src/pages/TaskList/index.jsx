@@ -18,14 +18,26 @@ export default function TaskList() {
   }
 
   return ( isUserLogedOut? redirectComponent() :
-    <Container>
-      fsdfsdfsdfs
-      <GoogleLogout
-        className="d-flex justify-content-center mx-auto my-5"
-        clientId={ process.env.REACT_APP_CLIENT_ID }
-        buttonText="Logout"
-        onLogoutSuccess={onSuccess}
-      />
+    <Container className="py-5 d-flex flex-column">
+      <div className="ms-auto">
+        <GoogleLogout
+          clientId={ process.env.REACT_APP_CLIENT_ID }
+          buttonText="Logout"
+          onLogoutSuccess={onSuccess}
+        />
+      </div>
+      <div className="mx-auto">
+        <h1>
+          Todo list
+        </h1>
+      </div>
+      <div className="mx-auto mt-3">
+        <input
+          className="task-input"
+          type="text"
+        />
+        <button className="ms-3 rounded-circle p-1 task-btn"> OK </button>
+      </div>
     </Container>
   )
 }
