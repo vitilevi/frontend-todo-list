@@ -3,15 +3,22 @@ import { Container } from 'react-bootstrap';
 import { GoogleLogin } from 'react-google-login';
 import { Redirect } from 'react-router-dom';
 import TaskContext from '../../contexts/TaskContext';
+import login from '../../services/fetchApi';
 
 export default function Login() {
   const {
     isUserLogged,
     setIsUserLogged,
+    setToken,
+    setTasks,
   } = useContext(TaskContext);
   
-  const onSuccess = (res) => {
-    console.log('succeed', res)
+  const onSuccess = async (res) => {
+    console.log('succeed')
+    const { tokenId } = res;
+    setToken(tokenId);
+    const dbRequest = await login(tokenId);
+    setTasks(dbRequest.tasks);
     setIsUserLogged(true);
     }
   
