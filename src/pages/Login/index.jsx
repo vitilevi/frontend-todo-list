@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
-import { Container, Row } from 'react-bootstrap';
-import { GoogleLogin, GoogleLogout } from 'react-google-login';
+import { Container } from 'react-bootstrap';
+import { GoogleLogin } from 'react-google-login';
 import { Redirect } from 'react-router-dom';
 
-export default function Login(props) {
+export default function Login() {
   const [isAuthorizedToRedirect, setIsAuthorizedToRedirect] = useState(false);
   
-  const onSuccess = (res, props) => {
+  const onSuccess = (res) => {
     console.log('succeed', res)
-    console.log(props);
     setIsAuthorizedToRedirect(true);
     }
   
@@ -24,26 +23,29 @@ export default function Login(props) {
   }
 
   return ( isAuthorizedToRedirect? redirectComponent() : 
-    <Container>
-      <Row>
+    <Container className="login-container">
+      <div className="p-5 d-flex flex-column mx-auto text-center login-box">
+        <h2 className="">Login</h2>
         <GoogleLogin
-          className="d-flex justify-content-center mx-auto my-5"
+          className="mt-4 mb-1 mx-auto google-btn"
           clientId={ process.env.REACT_APP_CLIENT_ID }
-          buttonText="Login"
-          onSuccess={ (res) => onSuccess(res, props) }
+          buttonText="Faça login"
+          onSuccess={ onSuccess }
           onFailure={ onFailure }
           cookiePolicy={ 'single_host_origin' }
           isSignedIn={ true }
         />
-      </Row>
-      <Row>
-        <GoogleLogout
-        className="d-flex justify-content-center mx-auto my-5"
-          clientId={ process.env.REACT_APP_CLIENT_ID }
-          buttonText="Logout"
-          onLogoutSuccess={onSuccess}
-        />
-      </Row>
+        <span className="or">Ou</span>
+        <GoogleLogin
+            className="mt-1 mx-auto google-btn"
+            clientId={ process.env.REACT_APP_CLIENT_ID }
+            buttonText="Cadastre-se"
+            onSuccess={ onSuccess }
+            onFailure={ onFailure }
+            cookiePolicy={ 'single_host_origin' }
+            isSignedIn={ true }
+          />
+      </div>
     </Container>
-  )
+  );
 }
