@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import TaskContext from '../contexts/TaskContext';
-import { saveTasks } from '../services/fetchApi';
+import { saveTask } from '../services/fetchApi';
 
 export default function TaskInput() {
   const {
@@ -24,9 +24,9 @@ export default function TaskInput() {
     const task = {
       name: localTask,
       date: formattedDate,
-      status: 'em andamento',
+      status: 'pendente',
     }
-    await saveTasks(token, task);
+    await saveTask(token, task);
     setTasks([...tasks, task]);
     setLocalTask('');
   };

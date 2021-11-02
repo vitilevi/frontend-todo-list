@@ -41,7 +41,7 @@ export default function TaskList() {
       <div className="mx-auto mt-3">
         <TaskInput />
       </div>
-      <div className="mx-auto mt-5">
+      <div className="mx-auto">
         {
           tasks.map((task) => <Task key={ task.name } task={ task } />)
         }
