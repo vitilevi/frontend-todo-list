@@ -3,9 +3,12 @@ import PropTypes from 'prop-types'
 
 export default function Task({ task }) {
   return (
-    <div>
+    <div className="d-flex my-2">
+      <input type="checkbox" className="mx-2 my-1" />
       <p>{ task.name }</p>
       <p>{ task.date }</p>
+      <p>{ task.status }</p>
+      <button>Delete</button>
     </div>
   );
 }

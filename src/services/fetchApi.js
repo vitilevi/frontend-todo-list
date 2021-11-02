@@ -8,11 +8,11 @@ export function login(token) {
   return axios.post(URL, obj).then((res) => res.data);
 }
 
-export function saveTasks(token, tasks) {
-  const URL = 'http://localhost:3001/saveTasks';
+export function saveTasks(token, task) {
+  const URL = 'http://localhost:3001/task';
   const obj = {
     token,
-    tasks,
+    task,
   };
   return axios.post(URL, obj).then((res) => res.data);
 }

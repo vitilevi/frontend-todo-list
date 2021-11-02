@@ -17,12 +17,13 @@ export default function Login() {
   const onSuccess = async (res) => {
     console.log('succeed')
     const { tokenId } = res;
-    setToken(tokenId);
     const dbRequest = await login(tokenId);
     setUser(dbRequest);
+    console.log(dbRequest)
     setTasks(dbRequest.tasks);
+    setToken(tokenId);
     setIsUserLogged(true);
-    }
+  }
   
   const onFailure = (res) => {
     console.log('failed', res)
