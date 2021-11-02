@@ -27,3 +27,12 @@ export function deleteTask(token, task) {
   };
   return axios.delete(URL, obj).then((res) => res.data);
 }
+
+export function editTask(token, task) {
+  const URL = 'http://localhost:3001/task';
+  const obj = {
+    token,
+    task,
+  };
+  return axios.put(URL, obj).then((res) => res.data);
+}

@@ -1,5 +1,5 @@
-import React, { useContext } from 'react';
-import { Container } from 'react-bootstrap';
+import React, { useContext, useState, useEffect } from 'react';
+import { Container, Toast } from 'react-bootstrap';
 import { GoogleLogout } from 'react-google-login';
 import { Redirect } from 'react-router-dom';
 import TaskContext from '../../contexts/TaskContext';
@@ -11,18 +11,29 @@ export default function TaskList() {
     isUserLogged,
     setIsUserLogged,
     tasks,
+    user,
   } = useContext(TaskContext);
+
+  const [showCard, setShowCard] = useState(false);
+
+  useEffect(() => {
+    const timeId = setTimeout(() => {
+      setShowCard(true)
+    }, 3000)
+
+    return () => {
+      clearTimeout(timeId)
+    }
+  }, []);
 
   const onSuccess = () => {
     console.log('Loged out successfuly')
     setIsUserLogged(false);
   }
 
-  const redirectComponent = () => {
-    return (
-      <Redirect to="/" />
-    );
-  }
+  const redirectComponent = () => (
+    <Redirect to="/" />
+  );
 
   return ( !isUserLogged? redirectComponent() :
     <Container className="py-5 d-flex flex-column">
@@ -46,6 +57,15 @@ export default function TaskList() {
           tasks.map((task) => <Task key={ task.name } task={ task } />)
         }
       </div>
+      <div className="position-absolute bottom-0 end-0 m-5 me-5">
+        <Toast className="toast" show={ showCard } onClose={ () => setShowCard(!showCard) }>
+          <Toast.Header>
+            <img src={ user.picture } className="rounded me-2" alt="Toast" />
+            <strong className="me-auto">Olá, { user.name }</strong>
+          </Toast.Header>
+          <Toast.Body><strong>Como está o seu dia? #vqv</strong></Toast.Body>
+        </Toast>
+      </div>
     </Container>
-  )
+  );
 }

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import TaskContext from '../contexts/TaskContext';
-import { deleteTask } from '../services/fetchApi';
+import { deleteTask, editTask } from '../services/fetchApi';
 
 export default function Task({ task }) {
   const {
@@ -31,6 +31,7 @@ export default function Task({ task }) {
     const indexOfTask = tasks.indexOf(task);
     console.log(tasks)
     tasks.splice(indexOfTask, 1, newTask);
+    // await editTask(token, newTask)
     setTasks(tasks);
     setEditMode(!editMode);
   }
