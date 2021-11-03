@@ -14,3 +14,23 @@
 .toast {
   color:rgba(50,50,50,.85)
 }
+
+.login-box {
+  margin-top: 30vh;
+}
+
+.login-box h1 {
+  font-size: 40px;
+}
+
+.task {
+  font-size: 20px;
+  padding: 50px;
+  background-color: #555;
+}
+
+@media screen and (max-width: 800px) {
+  .toast {
+    display: none;
+  }
+}

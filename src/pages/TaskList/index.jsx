@@ -55,9 +55,9 @@ export default function TaskList() {
       <div className="mx-auto">
 
       </div>
-      <div className="mx-auto">
+      <div className="mx-auto mt-3">
         {
-          tasks.map((task) => <Task key={ task.name } task={ task } />)
+          tasks.map((task, index) => <Task key={ index } task={ task } />)
         }
       </div>
       <div className="position-absolute bottom-0 end-0 m-5 me-5">
