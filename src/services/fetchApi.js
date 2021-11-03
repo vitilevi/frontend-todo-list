@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export function login(token) {
-  const URL = 'http://localhost:3001/login';
+  const URL = 'https://desafio-todo-list-backend.herokuapp.com/login';
   const obj = {
     token,
   };
@@ -9,7 +9,7 @@ export function login(token) {
 }
 
 export function saveTask(token, task) {
-  const URL = 'http://localhost:3001/task';
+  const URL = 'https://desafio-todo-list-backend.herokuapp.com/task';
   const obj = {
     token,
     task,
@@ -18,7 +18,7 @@ export function saveTask(token, task) {
 }
 
 export function deleteTask(token, task) {
-  const URL = 'http://localhost:3001/task';
+  const URL = 'https://desafio-todo-list-backend.herokuapp.com/task';
   const obj = {
     data: {
       token,
@@ -29,7 +29,7 @@ export function deleteTask(token, task) {
 }
 
 export function editTask(token, tasks) {
-  const URL = 'http://localhost:3001/task';
+  const URL = 'https://desafio-todo-list-backend.herokuapp.com/task';
   const obj = {
     token,
     tasks,
