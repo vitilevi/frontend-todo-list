@@ -11,16 +11,19 @@ export default function Login() {
     setIsUserLogged,
     setToken,
     setTasks,
+    setUser,
   } = useContext(TaskContext);
   
   const onSuccess = async (res) => {
     console.log('succeed')
     const { tokenId } = res;
-    setToken(tokenId);
     const dbRequest = await login(tokenId);
+    setUser(dbRequest);
+    console.log(dbRequest)
     setTasks(dbRequest.tasks);
+    setToken(tokenId);
     setIsUserLogged(true);
-    }
+  }
   
   const onFailure = (res) => {
     console.log('failed', res)
@@ -48,14 +51,14 @@ export default function Login() {
         />
         <span className="or">Ou</span>
         <GoogleLogin
-            className="mt-1 mx-auto google-btn"
-            clientId={ process.env.REACT_APP_CLIENT_ID }
-            buttonText="Cadastre-se"
-            onSuccess={ onSuccess }
-            onFailure={ onFailure }
-            cookiePolicy={ 'single_host_origin' }
-            isSignedIn={ true }
-          />
+          className="mt-1 mx-auto google-btn"
+          clientId={ process.env.REACT_APP_CLIENT_ID }
+          buttonText="Cadastre-se"
+          onSuccess={ onSuccess }
+          onFailure={ onFailure }
+          cookiePolicy={ 'single_host_origin' }
+          isSignedIn={ true }
+        />
       </div>
     </Container>
   );
