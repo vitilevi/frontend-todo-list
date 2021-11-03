@@ -53,6 +53,9 @@ export default function TaskList() {
         <TaskInput />
       </div>
       <div className="mx-auto">
+
+      </div>
+      <div className="mx-auto">
         {
           tasks.map((task) => <Task key={ task.name } task={ task } />)
         }

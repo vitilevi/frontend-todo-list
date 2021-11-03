@@ -51,14 +51,14 @@ export default function Login() {
         />
         <span className="or">Ou</span>
         <GoogleLogin
-            className="mt-1 mx-auto google-btn"
-            clientId={ process.env.REACT_APP_CLIENT_ID }
-            buttonText="Cadastre-se"
-            onSuccess={ onSuccess }
-            onFailure={ onFailure }
-            cookiePolicy={ 'single_host_origin' }
-            isSignedIn={ true }
-          />
+          className="mt-1 mx-auto google-btn"
+          clientId={ process.env.REACT_APP_CLIENT_ID }
+          buttonText="Cadastre-se"
+          onSuccess={ onSuccess }
+          onFailure={ onFailure }
+          cookiePolicy={ 'single_host_origin' }
+          isSignedIn={ true }
+        />
       </div>
     </Container>
   );

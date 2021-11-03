@@ -31,8 +31,8 @@ export default function Task({ task }) {
     const indexOfTask = tasks.indexOf(task);
     console.log(tasks)
     tasks.splice(indexOfTask, 1, newTask);
-    // await editTask(token, newTask)
-    setTasks(tasks);
+    setTasks([...tasks]);
+    await editTask(token, tasks)
     setEditMode(!editMode);
   }
 
@@ -45,22 +45,31 @@ export default function Task({ task }) {
   const EditComponent = () => (
     <div className="d-flex my-5 align-items-center">
       <input
+        className="mx-2"
         type="text"
         placeholder="Tarefa"
         value={ taskName }
         onChange={ ({ target: { value } }) => setTaskName(value) }
       />
-      <select name="taskStatus" onChange={ ({ target: { value } }) => setTaskStatus(value) }>
+      <select
+        name="taskStatus"
+        className="mx-2"
+        value={ taskStatus }
+        onChange={ ({ target: { value } }) => setTaskStatus(value) }
+      >
         <option value="pendente">pendente</option>
         <option value="em andamento">em andamento</option>
         <option value="pronto">pronto</option>
       </select>
       <input
+        className="mx-2"
         type="date"
+        value={ taskDate.split('/').reverse().join('-') }
         name="taskDate"
         onChange={ handleDate }
       />
       <button
+        className="mx-2"
         onClick={ handleEdit }
       >
         Editar
