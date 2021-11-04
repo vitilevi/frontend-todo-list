@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/frontend-todo-list/static/css/main.5ccbef54.chunk.css",
+    "main.js": "/frontend-todo-list/static/js/main.555d7f65.chunk.js",
+    "main.js.map": "/frontend-todo-list/static/js/main.555d7f65.chunk.js.map",
+    "runtime-main.js": "/frontend-todo-list/static/js/runtime-main.edcefec3.js",
+    "runtime-main.js.map": "/frontend-todo-list/static/js/runtime-main.edcefec3.js.map",
+    "static/css/2.0a9ec390.chunk.css": "/frontend-todo-list/static/css/2.0a9ec390.chunk.css",
+    "static/js/2.68bbfcd6.chunk.js": "/frontend-todo-list/static/js/2.68bbfcd6.chunk.js",
+    "static/js/2.68bbfcd6.chunk.js.map": "/frontend-todo-list/static/js/2.68bbfcd6.chunk.js.map",
+    "static/js/3.142ea1fa.chunk.js": "/frontend-todo-list/static/js/3.142ea1fa.chunk.js",
+    "static/js/3.142ea1fa.chunk.js.map": "/frontend-todo-list/static/js/3.142ea1fa.chunk.js.map",
+    "index.html": "/frontend-todo-list/index.html",
+    "static/css/2.0a9ec390.chunk.css.map": "/frontend-todo-list/static/css/2.0a9ec390.chunk.css.map",
+    "static/css/main.5ccbef54.chunk.css.map": "/frontend-todo-list/static/css/main.5ccbef54.chunk.css.map",
+    "static/js/2.68bbfcd6.chunk.js.LICENSE.txt": "/frontend-todo-list/static/js/2.68bbfcd6.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.edcefec3.js",
+    "static/css/2.0a9ec390.chunk.css",
+    "static/js/2.68bbfcd6.chunk.js",
+    "static/css/main.5ccbef54.chunk.css",
+    "static/js/main.555d7f65.chunk.js"
+  ]
+}
