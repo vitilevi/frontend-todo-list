@@ -5,7 +5,6 @@ import { Redirect } from 'react-router-dom';
 import TaskContext from '../../contexts/TaskContext';
 import TaskInput from '../../components/TaskInput';
 import Task from '../../components/Task';
-// import Filters from '../../components/Filters';
 
 export default function TaskList() {
   const {
@@ -20,7 +19,7 @@ export default function TaskList() {
   useEffect(() => {
     const timeId = setTimeout(() => {
       setShowCard(true)
-    }, 2000)
+    }, 2000);
 
     return () => {
       clearTimeout(timeId)
@@ -28,7 +27,7 @@ export default function TaskList() {
   }, []);
 
   const onSuccess = () => {
-    console.log('Loged out successfuly')
+    console.log('Loged out successfuly');
     setIsUserLogged(false);
   }
 
@@ -53,9 +52,6 @@ export default function TaskList() {
       <div className="mx-auto mt-3 d-flex align-items-center">
         <TaskInput />
       </div>
-      {/* <div className="mx-auto mt-3">
-        <Filters />
-      </div> */}
       <div className="mx-auto mt-3">
         {
           tasks.map((task, index) => <Task key={ index } task={ task } />)

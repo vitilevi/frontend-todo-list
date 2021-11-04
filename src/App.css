@@ -19,17 +19,11 @@
   margin-top: 30vh;
 }
 
-.login-box h1 {
-  font-size: 40px;
-}
-
 .task {
   font-size: 20px;
   padding: 10px;
-  background-color: rgba(50,50,50,.85);
   min-width: 600px;
   max-width: 600px;
-  /* line-break: auto; */
 }
 
 .icons {
