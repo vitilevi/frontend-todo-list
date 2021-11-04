@@ -5,6 +5,7 @@ import { Redirect } from 'react-router-dom';
 import TaskContext from '../../contexts/TaskContext';
 import TaskInput from '../../components/TaskInput';
 import Task from '../../components/Task';
+// import Filters from '../../components/Filters';
 
 export default function TaskList() {
   const {
@@ -52,9 +53,9 @@ export default function TaskList() {
       <div className="mx-auto mt-3 d-flex align-items-center">
         <TaskInput />
       </div>
-      <div className="mx-auto">
-
-      </div>
+      {/* <div className="mx-auto mt-3">
+        <Filters />
+      </div> */}
       <div className="mx-auto mt-3">
         {
           tasks.map((task, index) => <Task key={ index } task={ task } />)
