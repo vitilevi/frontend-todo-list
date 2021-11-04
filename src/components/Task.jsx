@@ -22,12 +22,11 @@ export default function Task({ task }) {
     await deleteTask(token, task);
   }
 
-  const handleEdit = async (name, status, unformatedDate) => {
-    const date = unformatedDate.split('-').reverse().join('/');
+  const handleEdit = async (name, status) => {
     const newTask = {
       name ,
-      date,
-      status,
+      date: task.date,
+      status: status === task.status? 'pendente' : status,
     };
     const indexOfTask = tasks.indexOf(task);
     console.log(tasks);
@@ -40,7 +39,6 @@ export default function Task({ task }) {
   const EditComponent = () => {
     let name = task.name;
     let status = task.status;
-    let date = task.date;
     return (
       <Modal show={ editMode } onHide={ () => setEditMode(!editMode) }>
         <Modal.Body className="d-flex flex-column">
@@ -49,12 +47,12 @@ export default function Task({ task }) {
             <p className="mx-2">{ task.status }</p>
             <p className="mx-2">{ task.date }</p>
           </div>
-          {/* <h3 className="text-center">Tarefa</h3> */}
           <div className="d-flex flex-column">
             <label htmlFor="inputEdit" />
             <input
               className="my-2 form-control"
               id="inputEdit"
+              placeHolder={ task.name }
               type="text"
               onChange={ ({ target: { value } }) => name = value }
             />
@@ -67,7 +65,7 @@ export default function Task({ task }) {
               <option value="em andamento">em andamento</option>
               <option value="pronto">pronto</option>
             </select>
-            <label htmlFor="dateEdit" />
+            {/* <label htmlFor="dateEdit" />
             <input
               className="my-2 form-control"
               type="date"
@@ -75,7 +73,7 @@ export default function Task({ task }) {
               name="taskDate"
               placeholder={ task.date }
               onChange={ ({ target: { value } }) => date = value }
-            />
+            /> */}
           </div>
         </Modal.Body>
         <Modal.Footer>
@@ -84,7 +82,7 @@ export default function Task({ task }) {
           </Button>
           <Button
             className="mx-2"
-            onClick={ () => handleEdit(name, status, date) }
+            onClick={ () => handleEdit(name, status) }
           >
             Salvar
           </Button>
@@ -96,20 +94,20 @@ export default function Task({ task }) {
   return ( editMode? <EditComponent /> :
     <div className="d-flex my-2 align-items-center justify-content-between task">
       <span className="px-2">{ task.name }</span>
-      <div className="d-flex align-items-center">
+      <div className="d-flex align-items-center justify-content-around">
         <div className="d-flex flex-column">
-          <span className="px-2 mx-auto"><strong>{ task.status }</strong></span>
-          <span className="px-2">{ task.date }</span>
+          <span className="px-2 ms-auto"><strong>{ task.status }</strong></span>
+          <span className="px-2 ms-auto">{ task.date }</span>
         </div>
-        <div className="mx-auto d-flex flex-column align-items-center">
+        <div className="mx-auto ms-2 d-flex flex-column align-items-center">
           <FontAwesomeIcon
             icon={ faEdit }
-            className="icons my-2"
+            className="icons my-1"
             onClick={ () => setEditMode(!editMode) }
           />
           <FontAwesomeIcon 
             icon={ faTrashAlt }
-            className="mx-2 icons"
+            className="mx-2 icons my-1"
             onClick={ handleDelete }
           />
         </div>

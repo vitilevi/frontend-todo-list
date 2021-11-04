@@ -18,6 +18,7 @@ export default function Login() {
     console.log('succeed')
     const { tokenId } = res;
     const dbRequest = await login(tokenId);
+    if (dbRequest.error) alert('Usuário ou senha incorretos');
     setUser(dbRequest);
     setTasks(dbRequest.tasks);
     setToken(tokenId);

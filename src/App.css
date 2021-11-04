@@ -27,7 +27,9 @@
   font-size: 20px;
   padding: 10px;
   background-color: rgba(50,50,50,.85);
-  min-width: 400px;
+  min-width: 600px;
+  max-width: 600px;
+  /* line-break: auto; */
 }
 
 .icons {
