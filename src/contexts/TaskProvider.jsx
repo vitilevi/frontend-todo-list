@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import TaskContext from './TaskContext';
 
 export default function TaskProvider({ children }) {
@@ -16,11 +16,11 @@ export default function TaskProvider({ children }) {
     setTasks,
     setToken,
     setUser,
-  }
+  };
 
   return (
     <TaskContext.Provider value={ context }>
       { children }
     </TaskContext.Provider>
-  )
+  );
 }
