@@ -19,7 +19,7 @@ export default function TaskList() {
   useEffect(() => {
     const timeId = setTimeout(() => {
       setShowCard(true)
-    }, 3000)
+    }, 2000)
 
     return () => {
       clearTimeout(timeId)
@@ -49,7 +49,7 @@ export default function TaskList() {
           Todo list
         </h1>
       </div>
-      <div className="mx-auto mt-3">
+      <div className="mx-auto mt-3 d-flex align-items-center">
         <TaskInput />
       </div>
       <div className="mx-auto">
