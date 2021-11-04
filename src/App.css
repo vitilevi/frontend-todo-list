@@ -25,8 +25,15 @@
 
 .task {
   font-size: 20px;
-  padding: 50px;
-  background-color: #555;
+  padding: 10px;
+  background-color: rgba(50,50,50,.85);
+  min-width: 600px;
+  max-width: 600px;
+  /* line-break: auto; */
+}
+
+.icons {
+  cursor: pointer;
 }
 
 @media screen and (max-width: 800px) {

@@ -1,6 +1,8 @@
 import React, { useContext, useState } from 'react';
 import TaskContext from '../contexts/TaskContext';
 import { saveTask } from '../services/fetchApi';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheckSquare } from '@fortawesome/free-solid-svg-icons';
 
 export default function TaskInput() {
   const {
@@ -16,6 +18,7 @@ export default function TaskInput() {
   }
 
   const handleSubmit = async () => {
+    if (localTask === '') return alert('Insira uma tarefa');
     const data = new Date();
     const dia  = data.getDate().toString().padStart(2, '0');
     const mes  = (data.getMonth()+1).toString().padStart(2, '0');
@@ -34,18 +37,20 @@ export default function TaskInput() {
   return (
     <>
       <input
-        className="task-input"
+        className="task-input form-control"
+        id="input"
         type="text"
         value={ localTask }
         name="task-input"
         onChange={ handleChange }
       />
-      <button
-        className="ms-3 rounded-circle p-1 task-btn"
+      <label htmlFor="input" className="form-label" />
+      <FontAwesomeIcon
+        icon={ faCheckSquare }
+        size="4x"
+        className="mx-3 p-2 icons"
         onClick={ handleSubmit }
-      >
-        OK
-      </button>
+      />
     </>
   )
 }
